@@ -7,3 +7,16 @@ body {
 	padding: 0;
 	font-family: DynaPuff;
 }
+
+h1{
+	margin: 0;
+}
+
+.wrapper {
+	background-image: url("https://www.expatica.com/app/uploads/sites/5/2014/05/french-new-year-traditions-1920x1080.jpg");
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	height: 100vh;
+}
+
