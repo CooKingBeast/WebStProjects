@@ -5,7 +5,7 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: DynaPuff;
+	font-family: DynaPuff, sans-serif;
 }
 
 h1 {
@@ -16,7 +16,7 @@ h1 {
 }
 
 .wrapper {
-	background-image: url('https://www.expatica.com/app/uploads/sites/5/2014/05/french-new-year-traditions-1920x1080.jpg');
+	background-image: url('https://lp-cms-production.s3.amazonaws.com/public/image_browser/GettyImages-107836794.jpg');
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: cover;
@@ -25,19 +25,18 @@ h1 {
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
+	color: white;
 }
 
 .timer_container {
 	display: flex;
-	flex-direction: row;
-	width: 27%;
 	text-align: center;
-	justify-content: space-between;
 }
 
 .timer_content {
 	display: flex;
 	flex-direction: column;
+	padding: 1rem 2.5rem;
 }
 
 .digits {
