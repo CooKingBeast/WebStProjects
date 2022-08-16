@@ -4,9 +4,9 @@ const minutesSelector = document.querySelector('.timer_minutes')
 const secondsSelector = document.querySelector('.timer_seconds')
 
 function countDownTimer() {
-	const currentDate = new Date()
+	const currentTime = new Date()
 	const countDownDate = new Date(2023, 0, 1)
-	const timeToYearEnd = countDownDate - currentDate
+	const timeToYearEnd = countDownDate - currentTime
 	const secToYearEnd = Math.floor((timeToYearEnd % (1000 * 60)) / 1000)
 	const minToYearEnd = Math.floor(
 		(timeToYearEnd % (1000 * 60 * 60)) / (1000 * 60)
