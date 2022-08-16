@@ -5,9 +5,7 @@ const secondsSelector = document.querySelector('.timer_seconds')
 
 function countDownTimer() {
 	const currentDate = new Date()
-	console.log(currentDate)
 	const countDownDate = new Date(2023, 0, 1)
-	console.log(countDownDate)
 	const timeToYearEnd = countDownDate - currentDate
 	const secToYearEnd = Math.floor((timeToYearEnd % (1000 * 60)) / 1000)
 	const minToYearEnd = Math.floor(
@@ -17,11 +15,15 @@ function countDownTimer() {
 		(timeToYearEnd % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
 	)
 	const daysToYearEnd = Math.floor(timeToYearEnd / (1000 * 60 * 60 * 24))
-	console.log(daysToYearEnd, hoursToYearEnd, minToYearEnd, secToYearEnd)
 
-	secondsSelector.innerHTML = secToYearEnd.toString()
-	minutesSelector.innerHTML = minToYearEnd.toString()
-	hoursSelector.innerHTML = hoursToYearEnd.toString()
+	secondsSelector.innerHTML = checkDigit(secToYearEnd.toString())
+	minutesSelector.innerHTML = checkDigit(minToYearEnd.toString())
+	hoursSelector.innerHTML = checkDigit(hoursToYearEnd.toString())
 	daysSelector.innerHTML = daysToYearEnd.toString()
 }
-countDownTimer()
+
+function checkDigit(timeFix) {
+	return timeFix <= 9 ? `0${timeFix}` : timeFix
+}
+
+setInterval(countDownTimer, 1000)
