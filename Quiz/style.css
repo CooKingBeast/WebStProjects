@@ -11,13 +11,13 @@ body {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	font-family: Roboto, sans-serif;
 }
 
 .wrapper {
-	height: 360px;
-	width: 450px;
+	min-height: 360px;
+	min-width: 450px;
 	box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
-	font-family: Roboto, sans-serif;
 }
 
 header {
@@ -52,16 +52,18 @@ h2 {
 	display: flex;
 	margin: 10px 0;
 	padding: 5px 0;
-	border: #d0defa 2px solid;
+	border: 2px solid #d0defa;
 	background-color: #eef2fa;
 	border-radius: 5px;
+	cursor: pointer;
+	width: 100%;
 }
 
 .mainAnswers:hover {
 	background-color: #e3f2fc;
 }
 
-.buttonDiv {
+.nextQueBtn {
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
@@ -69,12 +71,13 @@ h2 {
 
 button {
 	background-color: #bcdcf7;
-	border: solid 1px #8ac1f0;
+	border: 1px solid #8ac1f0;
 	color: white;
 	padding: 5px 25px;
 	border-radius: 5px;
 	font-size: 15px;
 	font-weight: bold;
+	cursor: pointer;
 }
 
 button:hover {
@@ -94,3 +97,4 @@ button:hover {
 label {
 	padding: 0 10px;
 }
+
