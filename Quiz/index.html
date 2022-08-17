@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 	<head>
 		<meta charset="UTF-8" />
-		<title>Title</title>
+		<title>Quiz</title>
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
@@ -13,32 +13,24 @@
 			</header>
 			<main>
 				<h2>Kto projivaet na dne okeana ?</h2>
-				<p>
-					<label>
-						<input type="checkbox" />
-						<br />vilka
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="checkbox" />
-						<br />lojka
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="checkbox" />
-						<br />hyi
-					</label>
-				</p>
-				<p>
-					<label>
-						<input type="checkbox" />
-						<br />gybka Bob
-					</label>
-				</p>
+				<div>
+					<input id="firstAnswer" type="checkbox" />
+					<div><label for="firstAnswer"> vilka </label></div>
+				</div>
+				<div>
+					<input id="secondAnswer" type="checkbox" />
+					<div><label for="secondAnswer">lojka </label></div>
+				</div>
+				<div>
+					<input id="thirdAnswer" type="checkbox" />
+					<div><label for="thirdAnswer">hyi </label></div>
+				</div>
+				<div>
+					<input id="fourthAnswer" type="checkbox" />
+					<div><label for="fourthAnswer">spongebobu </label></div>
+				</div>
+				<button>Next Que</button>
 			</main>
-			<button>Next Que</button>
 		</div>
 		<script src="./script.js"></script>
 	</body>
