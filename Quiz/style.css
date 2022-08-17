@@ -67,7 +67,7 @@ h2 {
 	align-items: flex-end;
 }
 
-button{
+button {
 	background-color: #bcdcf7;
 	border: solid 1px #8ac1f0;
 	color: white;
@@ -79,4 +79,18 @@ button{
 
 button:hover {
 	background-color: #e3f2fc;
+}
+
+.variant:before {
+	left: 6px !important;
+	top: 3px !important;
+}
+
+.variant:after {
+	left: 6px !important;
+	top: 3px !important;
+}
+
+label {
+	padding: 0 10px;
 }
