@@ -63,7 +63,7 @@ h2 {
 	background-color: #e3f2fc;
 }
 
-.nextQueBtn {
+.control_panel {
 	display: flex;
 	justify-content: flex-end;
 	align-items: flex-end;
