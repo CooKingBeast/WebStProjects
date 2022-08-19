@@ -4,7 +4,7 @@ const secondAnswerSelector = document.querySelector('.second_answer')
 const thirdAnswerSelector = document.querySelector('.third_answer')
 const fourthAnswerSelector = document.querySelector('.fourth_answer')
 const nextQueBtnSelector = document.querySelector('.next_question-button')
-const mainSelector = document.querySelector('.main')
+const answersParentSelector = document.querySelector('.answers_parent')
 const allCheckboxSelector = document.querySelectorAll('.option')
 
 const data = [
@@ -54,20 +54,25 @@ function nextQueBtn() {
 	thirdAnswerSelector.innerText = data[number].answer3
 	fourthAnswerSelector.innerText = data[number].answer4
 	answersArray.push(answer)
+	clearCheckboxes()
+}
+
+function clearCheckboxes() {
+	for (let i = 0; i < allCheckboxSelector.length; i++) {
+		allCheckboxSelector[i].checked = false
+	}
 }
 
 function pickAnswer(event) {
 	const target = event.target
-	for (let i = 0; i < allCheckboxSelector.length; i++) {
-		allCheckboxSelector[i].checked = false
-	}
 	if (target.tagName === 'INPUT') {
+		clearCheckboxes()
 		target.checked = true
 		answer = target.labels[0].innerText
 	}
 }
 
-mainSelector.addEventListener('click', (event) => pickAnswer(event))
+answersParentSelector.addEventListener('click', (event) => pickAnswer(event))
 nextQueBtnSelector.addEventListener('click', nextQueBtn)
 
 init()
