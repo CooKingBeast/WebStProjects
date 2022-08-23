@@ -6,6 +6,8 @@ const fourthAnswerSelector = document.querySelector('.fourth_answer')
 const nextQueBtnSelector = document.querySelector('.next_question-button')
 const answersParentSelector = document.querySelector('.answers_parent')
 const allCheckboxSelector = document.querySelectorAll('.option')
+const resultWrapperSelector = document.querySelector('.result_wrapper')
+const mainSelector = document.querySelector('.main_selector')
 
 const data = [
 	{
@@ -14,7 +16,9 @@ const data = [
 		answer1: 'Wolf',
 		answer2: 'Bear',
 		answer3: 'Fork',
-		answer4: 'Spongebobu'
+		answer4: 'Spongebobu',
+		rightAnswer: 'r4'
+		// rightAnswer: 'realnoe znachenie otveta "spongebobu"' sdelat' vmesto sravneniya s input name..
 	},
 	{
 		id: 2,
@@ -23,20 +27,29 @@ const data = [
 		answer2: 'ne norm',
 		answer3: 'zaebis',
 		answer4: 'dick'
-	},
-	{
-		id: 3,
-		question: 'kak zovut?',
-		answer1: 'Petya',
-		answer2: 'Dima',
-		answer3: 'Vasya',
-		answer4: 'Dick'
 	}
+	// {
+	// 	id: 3,
+	// 	question: 'kak zovut?',
+	// 	answer1: 'Petya',
+	// 	answer2: 'Dima',
+	// 	answer3: 'Vasya',
+	// 	answer4: 'Dick'
+	// },
+	// {
+	// 	id: 4,
+	// 	question: 'asd?',
+	// 	answer1: 'Petya',
+	// 	answer2: 'Dima',
+	// 	answer3: 'Vasya',
+	// 	answer4: 'Dick'
+	// }
 ]
 
 let number = 0
 let answer = ''
 const answersArray = []
+let rightAnswerCounter = 0
 
 function init() {
 	questionSelector.innerText = data[0].question
@@ -47,14 +60,20 @@ function init() {
 }
 
 function nextQueBtn() {
-	number += 1
-	questionSelector.innerText = data[number].question
-	firstAnswerSelector.innerText = data[number].answer1
-	secondAnswerSelector.innerText = data[number].answer2
-	thirdAnswerSelector.innerText = data[number].answer3
-	fourthAnswerSelector.innerText = data[number].answer4
-	answersArray.push(answer)
+	if (number === data.length - 1) {
+		mainSelector.style.display = 'none'
+		resultWrapperSelector.style.display = 'flex'
+	} else {
+		number += 1
+		questionSelector.innerText = data[number].question
+		firstAnswerSelector.innerText = data[number].answer1
+		secondAnswerSelector.innerText = data[number].answer2
+		thirdAnswerSelector.innerText = data[number].answer3
+		fourthAnswerSelector.innerText = data[number].answer4
+		answersArray.push(answer)
+	}
 	clearCheckboxes()
+	answersCounter()
 }
 
 function clearCheckboxes() {
@@ -69,6 +88,12 @@ function pickAnswer(event) {
 		clearCheckboxes()
 		target.checked = true
 		answer = target.labels[0].innerText
+	}
+}
+
+function answersCounter() {
+	if (answer === 'Wolf' || answer === 'norm') {
+		rightAnswerCounter += 1
 	}
 }
 

@@ -98,3 +98,23 @@ label {
 	padding: 0 10px;
 }
 
+.control_panel {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+	align-items: flex-end;
+}
+
+.result_wrapper {
+	display: none;
+	min-height: 360px;
+	min-width: 450px;
+	box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.result_button{
+	margin: 20px 0;
+}
