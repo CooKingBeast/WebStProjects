@@ -21,7 +21,6 @@ const data = [
 		answer3: 'Fork',
 		answer4: 'Spongebobu',
 		rightAnswer: 'Spongebobu'
-		// rightAnswer: 'r2'
 	},
 	{
 		id: 2,
@@ -64,6 +63,7 @@ function init() {
 	secondAnswerSelector.innerText = data[0].answer2
 	thirdAnswerSelector.innerText = data[0].answer3
 	fourthAnswerSelector.innerText = data[0].answer4
+	nextQueBtnSelector.disabled = true
 }
 
 function nextQueBtn() {
@@ -80,6 +80,7 @@ function nextQueBtn() {
 		thirdAnswerSelector.innerText = data[number].answer3
 		fourthAnswerSelector.innerText = data[number].answer4
 		answersArray.push(answer)
+		nextQueBtnSelector.disabled = true
 	}
 	clearCheckboxes()
 }
@@ -95,17 +96,10 @@ function pickAnswer(event) {
 	if (target.tagName === 'INPUT') {
 		clearCheckboxes()
 		target.checked = true
-		// answer = target.name
 		answer = target.labels[0].innerText
+		inputsCheck()
 	}
 }
-
-// function answersCounter() {
-// 	if (answer === data[number].rightAnswer) {
-// 		rightAnswerCounter += 1
-// 		console.log('pravilnih otvetov=', rightAnswerCounter)
-// 	}
-// }
 
 function answersCounter() {
 	if (answer === data[number].rightAnswer) {
@@ -114,16 +108,16 @@ function answersCounter() {
 	}
 }
 
-// function inputsCheck(){
-// 	if(allCheckboxSelector.checked === false){
-// alert('viberi otvet pidor')
-// 	}
-// else
-// 	alert('ok')
-// }
+function inputsCheck() {
+	for (let i = 0; i < allCheckboxSelector.length; i++) {
+		if (allCheckboxSelector[i].checked === true) {
+			nextQueBtnSelector.disabled = false
+		}
+	}
+}
 
 answersParentSelector.addEventListener('click', (event) => pickAnswer(event))
 nextQueBtnSelector.addEventListener('click', nextQueBtn)
-resultButton.addEventListener('click',() => window.location.reload())
+resultButton.addEventListener('click', () => window.location.reload())
 
 init()
