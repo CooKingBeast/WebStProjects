@@ -8,6 +8,8 @@ const answersParentSelector = document.querySelector('.answers_parent')
 const allCheckboxSelector = document.querySelectorAll('.option')
 const resultWrapperSelector = document.querySelector('.result_wrapper')
 const mainSelector = document.querySelector('.main_selector')
+const result = document.querySelector('.right_answers_count')
+const questionsTotal = document.querySelector('.questions_total')
 
 const data = [
 	{
@@ -17,8 +19,8 @@ const data = [
 		answer2: 'Bear',
 		answer3: 'Fork',
 		answer4: 'Spongebobu',
-		rightAnswer: 'r4'
-		// rightAnswer: 'realnoe znachenie otveta "spongebobu"' sdelat' vmesto sravneniya s input name..
+		rightAnswer: 'Spongebobu'
+		// rightAnswer: 'r2'
 	},
 	{
 		id: 2,
@@ -27,29 +29,32 @@ const data = [
 		answer2: 'ne norm',
 		answer3: 'zaebis',
 		answer4: 'dick'
+	},
+	{
+		id: 3,
+		question: 'kak zovut?',
+		answer1: 'Petya',
+		answer2: 'Dima',
+		answer3: 'Vasya',
+		answer4: 'Dick',
+		rightAnswer: 'Dima'
+	},
+	{
+		id: 4,
+		question: 'asd?',
+		answer1: 'Petya',
+		answer2: 'Dima',
+		answer3: 'Vasya',
+		answer4: 'Dick',
+		rightAnswer: 'Petya'
 	}
-	// {
-	// 	id: 3,
-	// 	question: 'kak zovut?',
-	// 	answer1: 'Petya',
-	// 	answer2: 'Dima',
-	// 	answer3: 'Vasya',
-	// 	answer4: 'Dick'
-	// },
-	// {
-	// 	id: 4,
-	// 	question: 'asd?',
-	// 	answer1: 'Petya',
-	// 	answer2: 'Dima',
-	// 	answer3: 'Vasya',
-	// 	answer4: 'Dick'
-	// }
 ]
 
 let number = 0
 let answer = ''
 const answersArray = []
 let rightAnswerCounter = 0
+questionsTotal.innerText = data.length.toString()
 
 function init() {
 	questionSelector.innerText = data[0].question
@@ -71,6 +76,7 @@ function nextQueBtn() {
 		thirdAnswerSelector.innerText = data[number].answer3
 		fourthAnswerSelector.innerText = data[number].answer4
 		answersArray.push(answer)
+
 	}
 	clearCheckboxes()
 	answersCounter()
@@ -87,15 +93,32 @@ function pickAnswer(event) {
 	if (target.tagName === 'INPUT') {
 		clearCheckboxes()
 		target.checked = true
+		// answer = target.name
 		answer = target.labels[0].innerText
 	}
 }
 
 function answersCounter() {
-	if (answer === 'Wolf' || answer === 'norm') {
+	if (answer === data[number].rightAnswer) {
 		rightAnswerCounter += 1
+		console.log('pravilnih otvetov=', rightAnswerCounter)
 	}
 }
+
+// function answersCounter() {
+// 	if (answer === 'Wolf' || answer === 'norm') {
+// 		rightAnswerCounter += 1
+// 		result.innerHTML = rightAnswerCounter
+// 	}
+// }
+
+// function inputsCheck(){
+// 	if(allCheckboxSelector.checked === false){
+// alert('viberi otvet pidor')
+// 	}
+// else
+// 	alert('ok')
+// }
 
 answersParentSelector.addEventListener('click', (event) => pickAnswer(event))
 nextQueBtnSelector.addEventListener('click', nextQueBtn)
