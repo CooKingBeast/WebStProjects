@@ -10,6 +10,7 @@ const resultWrapperSelector = document.querySelector('.result_wrapper')
 const mainSelector = document.querySelector('.main_selector')
 const result = document.querySelector('.right_answers_count')
 const questionsTotal = document.querySelector('.questions_total')
+const resultButton = document.querySelector('.result_button')
 
 const data = [
 	{
@@ -28,7 +29,8 @@ const data = [
 		answer1: 'norm',
 		answer2: 'ne norm',
 		answer3: 'zaebis',
-		answer4: 'dick'
+		answer4: 'dick',
+		rightAnswer: 'dick'
 	},
 	{
 		id: 3,
@@ -66,9 +68,11 @@ function init() {
 
 function nextQueBtn() {
 	if (number === data.length - 1) {
+		answersCounter()
 		mainSelector.style.display = 'none'
 		resultWrapperSelector.style.display = 'flex'
 	} else {
+		answersCounter()
 		number += 1
 		questionSelector.innerText = data[number].question
 		firstAnswerSelector.innerText = data[number].answer1
@@ -76,10 +80,8 @@ function nextQueBtn() {
 		thirdAnswerSelector.innerText = data[number].answer3
 		fourthAnswerSelector.innerText = data[number].answer4
 		answersArray.push(answer)
-
 	}
 	clearCheckboxes()
-	answersCounter()
 }
 
 function clearCheckboxes() {
@@ -98,19 +100,19 @@ function pickAnswer(event) {
 	}
 }
 
+// function answersCounter() {
+// 	if (answer === data[number].rightAnswer) {
+// 		rightAnswerCounter += 1
+// 		console.log('pravilnih otvetov=', rightAnswerCounter)
+// 	}
+// }
+
 function answersCounter() {
 	if (answer === data[number].rightAnswer) {
 		rightAnswerCounter += 1
-		console.log('pravilnih otvetov=', rightAnswerCounter)
+		result.innerText = rightAnswerCounter
 	}
 }
-
-// function answersCounter() {
-// 	if (answer === 'Wolf' || answer === 'norm') {
-// 		rightAnswerCounter += 1
-// 		result.innerHTML = rightAnswerCounter
-// 	}
-// }
 
 // function inputsCheck(){
 // 	if(allCheckboxSelector.checked === false){
@@ -122,5 +124,6 @@ function answersCounter() {
 
 answersParentSelector.addEventListener('click', (event) => pickAnswer(event))
 nextQueBtnSelector.addEventListener('click', nextQueBtn)
+resultButton.addEventListener('click',() => window.location.reload())
 
 init()
