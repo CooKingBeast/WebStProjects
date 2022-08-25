@@ -16,7 +16,7 @@ body {
 
 .wrapper {
 	min-height: 360px;
-	min-width: 450px;
+	width: 450px;
 	box-shadow: 0 5px 10px 2px rgba(34, 60, 80, 0.2);
 }
 
@@ -46,6 +46,7 @@ main {
 h2 {
 	margin: 0;
 	text-align: center;
+	word-break: break-all;
 }
 
 .mainAnswers {
