@@ -8,46 +8,46 @@ const answersParentSelector = document.querySelector('.answers_parent')
 const allCheckboxSelector = document.querySelectorAll('.option')
 const resultWrapperSelector = document.querySelector('.result_wrapper')
 const mainSelector = document.querySelector('.main_selector')
-const result = document.querySelector('.right_answers_count')
-const questionsTotal = document.querySelector('.questions_total')
-const resultButton = document.querySelector('.result_button')
+const rightAnswersSelector = document.querySelector('.right_answers_count')
+const questionsTotalSelector = document.querySelector('.questions_total')
+const tryAgainBtnSelector = document.querySelector('.try_again-button')
 
 const data = [
 	{
 		id: 1,
 		question: 'Who lives pineapple under the sea ?',
-		answer1: 'Wolf',
-		answer2: 'Bear',
-		answer3: 'Fork',
-		answer4: 'Spongebobu',
-		rightAnswer: 'Spongebobu'
+		answer1: 'Patrick',
+		answer2: 'Squidward',
+		answer3: 'Gary',
+		answer4: 'SpongeBob',
+		rightAnswer: 'SpongeBob'
 	},
 	{
 		id: 2,
-		question: 'che_kavo?',
-		answer1: 'norm',
-		answer2: 'ne norm',
-		answer3: 'zaebis',
-		answer4: 'dick',
-		rightAnswer: 'dick'
+		question: 'Which of the following is the largest ?',
+		answer1: 'A Peanut',
+		answer2: 'The Moon',
+		answer3: 'An Elephant',
+		answer4: 'Your mom',
+		rightAnswer: 'The Moon'
 	},
 	{
 		id: 3,
-		question: 'kak zovut?',
-		answer1: 'Petya',
-		answer2: 'Dima',
-		answer3: 'Vasya',
-		answer4: 'Dick',
-		rightAnswer: 'Dima'
+		question: 'What is the worlds popular language ?',
+		answer1: 'French',
+		answer2: 'English',
+		answer3: 'Spanish',
+		answer4: 'JavaScript',
+		rightAnswer: 'English'
 	},
 	{
 		id: 4,
-		question: 'asd?',
-		answer1: 'Petya',
-		answer2: 'Dima',
-		answer3: 'Vasya',
-		answer4: 'Dick',
-		rightAnswer: 'Petya'
+		question: 'If you choose an answer to this question at random, what is the chance that you will be correct ?',
+		answer1: '25%',
+		answer2: '0%',
+		answer3: '50%',
+		answer4: '25%',
+		rightAnswer: '50%'
 	}
 ]
 
@@ -55,7 +55,6 @@ let number = 0
 let answer = ''
 const answersArray = []
 let rightAnswerCounter = 0
-questionsTotal.innerText = data.length.toString()
 
 function init() {
 	questionSelector.innerText = data[0].question
@@ -104,8 +103,9 @@ function pickAnswer(event) {
 function answersCounter() {
 	if (answer === data[number].rightAnswer) {
 		rightAnswerCounter += 1
-		result.innerText = rightAnswerCounter
+		rightAnswersSelector.innerText = rightAnswerCounter
 	}
+	questionsTotalSelector.innerText = data.length
 }
 
 function inputsCheck() {
@@ -118,6 +118,6 @@ function inputsCheck() {
 
 answersParentSelector.addEventListener('click', (event) => pickAnswer(event))
 nextQueBtnSelector.addEventListener('click', nextQueBtn)
-resultButton.addEventListener('click', () => window.location.reload())
+tryAgainBtnSelector.addEventListener('click', () => window.location.reload())
 
 init()
