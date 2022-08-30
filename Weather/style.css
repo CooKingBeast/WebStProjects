@@ -6,4 +6,48 @@ body {
 	margin: 0;
 	padding: 0;
 	background-color: gray;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 100vh;
+}
+
+.wrapper {
+	border: 2px solid black;
+	display: flex;
+	height: 80%;
+	width: 95%;
+}
+
+.main_info {
+	width: 70%;
+	border: 2px solid black;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.main-weather_box{
+	display: flex;
+	border: 2px solid black;
+	margin: 10rem;
+	align-items: baseline;
+}
+
+.weather_box_padding{
+	padding: 0  0.5rem;
+}
+
+.degrees{
+	font-size: 70px
+}
+
+.city{
+	font-size: 50px;
+}
+
+.weather_type{
+	display:flex;
+	flex-direction: column;
+	font-size: 20px;
 }
