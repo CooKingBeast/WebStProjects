@@ -6,7 +6,43 @@
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
-		<h1>Title test</h1>
+		<div class="wrapper">
+			<div class="main_info">
+				<span class="deegrees">16&#8451;</span>
+				<span class="city">London</span>
+				<div class="weather_type">
+					<img src="./assets/cloudyIMG.png" alt="cloudyIMG" />
+					<span>Cloudy</span>
+				</div>
+			</div>
+			<div class="content">
+				<form>
+					<label for="form_input">
+						<input
+							id="form_input"
+							type="text"
+							placeholder="Search location"
+						/>
+						<img src="./assets/searchIMG.png" alt="searchIMG" />
+					</label>
+				</form>
+				<div class="details">
+					<h3>Weather Details</h3>
+					<div class="weather_type_details">
+						<span>Cloudy</span>
+						<span>86%</span>
+					</div>
+					<div class="humidity_details">
+						<span>Humidity</span>
+						<span>62%</span>
+					</div>
+					<div class="wind_details">
+						<span>Wind</span>
+						<span>8km/h</span>
+					</div>
+				</div>
+			</div>
+		</div>
 		<script src="./script.js"></script>
 	</body>
 </html>
