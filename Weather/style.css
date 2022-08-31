@@ -1,53 +1,98 @@
 * {
 	box-sizing: border-box;
+	color: white;
 }
 
 body {
 	margin: 0;
 	padding: 0;
-	background-color: gray;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
+	background: url('./assets/blurred.png');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .wrapper {
-	border: 2px solid black;
 	display: flex;
 	height: 80%;
 	width: 95%;
+	visibility: visible;
+	opacity: 1;
+	background: url('./assets/nonblurred.png');
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .main_info {
-	width: 70%;
-	border: 2px solid black;
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;
+	width: 80%;
 }
 
-.main-weather_box{
+.main-weather_box {
 	display: flex;
-	border: 2px solid black;
 	margin: 10rem;
 	align-items: baseline;
 }
 
-.weather_box_padding{
-	padding: 0  0.5rem;
+.weather_box_padding {
+	padding: 0 0.5rem;
 }
 
-.degrees{
-	font-size: 70px
+.degrees {
+	font-size: 70px;
 }
 
-.city{
+.city {
 	font-size: 50px;
 }
 
-.weather_type{
-	display:flex;
+.weather_type {
+	display: flex;
 	flex-direction: column;
+	font-size: 20px;
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+	width: 20%;
+	background-color: rgba(255, 255, 255, 0.2);
+	backdrop-filter: blur(30px);
+}
+
+.content-form {
+	display: flex;
+}
+
+label {
+	display: flex;
+}
+
+#label_form_input {
+	width: 19rem;
+	background-color: transparent;
+	border: none;
+}
+
+::-webkit-input-placeholder {
+	color: white;
+	font-size: 15px;
+}
+
+h2 {
+	margin: 1rem 0 3.5rem 1rem;
+}
+.weather_details_items {
+	margin: 2rem 1rem;
+	display: flex;
+	justify-content: space-between;
+}
+
+.weather_details_font-size {
 	font-size: 20px;
 }
