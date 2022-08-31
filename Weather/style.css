@@ -1,6 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
 * {
 	box-sizing: border-box;
-	color: white;
 }
 
 body {
@@ -10,20 +11,20 @@ body {
 	align-items: center;
 	justify-content: center;
 	height: 100vh;
-	background: url('./assets/blurred.png');
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-color: #8ec5fc;
+	background-image: linear-gradient(62deg, #8ec5fc 0%, #e0c3fc 100%);
+	font-family: Lato, sans-serif;
 }
 
 .wrapper {
 	display: flex;
-	height: 80%;
-	width: 95%;
+	height: 70%;
+	width: 65%;
 	visibility: visible;
 	opacity: 1;
-	background: url('./assets/nonblurred.png');
-	background-size: cover;
-	background-repeat: no-repeat;
+	background-color: #8bc6ec;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.6);
+	border-radius: 3px;
 }
 
 .main_info {
@@ -60,9 +61,8 @@ body {
 .content {
 	display: flex;
 	flex-direction: column;
-	width: 20%;
-	background-color: rgba(255, 255, 255, 0.2);
-	backdrop-filter: blur(30px);
+	width: 25%;
+	background-color: rgba(255, 255, 255, 0.1);
 }
 
 .content-form {
@@ -74,25 +74,43 @@ label {
 }
 
 #label_form_input {
-	width: 19rem;
+	width: 13rem;
 	background-color: transparent;
 	border: none;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.7);
+	margin: 0 1rem;
+	font-size: 20px;
 }
 
-::-webkit-input-placeholder {
-	color: white;
-	font-size: 15px;
+textarea:focus,
+input:focus {
+	outline: none;
+}
+
+.input_search_icon {
+	height: 4rem;
+	width: 4rem;
+	padding: 1rem;
+	background-color: orange;
+	border-top-right-radius: 3px;
+}
+
+.details {
+	margin: 14rem 1rem;
+	border-top: 1px solid rgba(0, 0, 0, 0.7);
+	font-size: 17px;
 }
 
 h2 {
-	margin: 1rem 0 3.5rem 1rem;
+	margin: 1rem 0 3.5rem 0;
 }
+
 .weather_details_items {
-	margin: 2rem 1rem;
+	margin: 2rem 0;
 	display: flex;
 	justify-content: space-between;
 }
 
-.weather_details_font-size {
-	font-size: 20px;
+.weather_details_digits-font_size {
+	font-weight: bold;
 }
