@@ -8,37 +8,39 @@
 	<body>
 		<div class="wrapper">
 			<div class="main_info">
-				<span class="deegrees">16&#8451;</span>
-				<span class="city">London</span>
-				<div class="weather_type">
-					<img src="./assets/cloudyIMG.png" alt="cloudyIMG" />
-					<span>Cloudy</span>
+				<div class="main-weather_box">
+					<span class="degrees weather_box_padding">16&#176;</span>
+					<span class="city weather_box_padding">London</span>
+					<div class="weather_type weather_box_padding">
+						<img src="./assets/cloudyIMG.png" alt="cloudyIMG" />
+						<span>Cloudy</span>
+					</div>
 				</div>
 			</div>
 			<div class="content">
-				<form>
-					<label for="form_input">
+				<form class="content-form">
+					<label for="label_form_input">
 						<input
-							id="form_input"
-							type="text"
+							id="label_form_input"
+							type="search"
 							placeholder="Search location"
 						/>
-						<img src="./assets/searchIMG.png" alt="searchIMG" />
+						<img class="input_search_icon" src="./assets/magnifying-glass.png" alt="searchIMG" />
 					</label>
 				</form>
 				<div class="details">
-					<h3>Weather Details</h3>
-					<div class="weather_type_details">
+					<h2>Weather Details</h2>
+					<div class="weather_type_details weather_details_items">
 						<span>Cloudy</span>
-						<span>86%</span>
+						<span class="weather_details_digits-font_size">86%</span>
 					</div>
-					<div class="humidity_details">
+					<div class="humidity_details weather_details_items">
 						<span>Humidity</span>
-						<span>62%</span>
+						<span class="weather_details_digits-font_size">62%</span>
 					</div>
-					<div class="wind_details">
+					<div class="wind_details weather_details_items">
 						<span>Wind</span>
-						<span>8km/h</span>
+						<span class="weather_details_digits-font_size">8km/h</span>
 					</div>
 				</div>
 			</div>
