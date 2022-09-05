@@ -45,6 +45,12 @@ body {
 	font-weight: bold;
 }
 
+.celsius{
+	font-size: 70px;
+	font-weight: bold;
+}
+
+
 .city {
 	font-size: 50px;
 }
