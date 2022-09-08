@@ -24,6 +24,7 @@ const getWeather = async (city) => {
 }
 
 const createWeatherContent = (data) => {
+	inputSelector.value = ''
 	degreesSelector.innerText = Math.round(data.main.temp)
 	citySelector.innerText = data.name
 	weatherIconSelector.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`

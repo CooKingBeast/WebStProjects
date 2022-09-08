@@ -95,6 +95,7 @@ input:focus {
 	padding: 1rem;
 	background-color: orange;
 	border-top-right-radius: 3px;
+	cursor: pointer;
 }
 
 .details {
