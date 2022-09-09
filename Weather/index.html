@@ -9,10 +9,11 @@
 		<div class="wrapper">
 			<div class="main_info">
 				<div class="main-weather_box">
-					<span class="degrees weather_box_padding">16&#176;</span>
-					<span class="city weather_box_padding">London</span>
+					<span class="degrees weather_box_padding"></span>
+					<span class="celsius">&#176;</span>
+					<span class="city weather_box_padding"></span>
 					<div class="weather_type weather_box_padding">
-						<img src="./assets/cloudyIMG.png" alt="cloudyIMG" />
+						<img class="weather_icon" alt="weather_icon" src="" />
 						<span>Cloudy</span>
 					</div>
 				</div>
@@ -21,26 +22,47 @@
 				<form class="content-form">
 					<label for="label_form_input">
 						<input
+							class="form_input"
 							id="label_form_input"
-							type="search"
+							type="text"
 							placeholder="Search location"
 						/>
-						<img class="input_search_icon" src="./assets/magnifying-glass.png" alt="searchIMG" />
+						<img
+							class="input_search_icon"
+							src="./assets/magnifying-glass.png"
+							alt="searchIMG"
+						/>
 					</label>
 				</form>
 				<div class="details">
 					<h2>Weather Details</h2>
 					<div class="weather_type_details weather_details_items">
-						<span>Cloudy</span>
-						<span class="weather_details_digits-font_size">86%</span>
+						<span>Pressure</span>
+						<span
+							class="pressure weather_details_digits-font_size"
+						></span>
 					</div>
 					<div class="humidity_details weather_details_items">
 						<span>Humidity</span>
-						<span class="weather_details_digits-font_size">62%</span>
+						<div>
+							<span
+								class="humidity weather_details_digits-font_size"
+							></span>
+							<span class="weather_details_digits-font_size"
+								>%</span
+							>
+						</div>
 					</div>
 					<div class="wind_details weather_details_items">
 						<span>Wind</span>
-						<span class="weather_details_digits-font_size">8km/h</span>
+						<div>
+							<span
+								class="wind weather_details_digits-font_size"
+							></span>
+							<span class="weather_details_digits-font_size"
+								>m/s</span
+							>
+						</div>
 					</div>
 				</div>
 			</div>

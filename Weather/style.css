@@ -45,6 +45,12 @@ body {
 	font-weight: bold;
 }
 
+.celsius{
+	font-size: 70px;
+	font-weight: bold;
+}
+
+
 .city {
 	font-size: 50px;
 }
@@ -89,6 +95,7 @@ input:focus {
 	padding: 1rem;
 	background-color: orange;
 	border-top-right-radius: 3px;
+	cursor: pointer;
 }
 
 .details {

@@ -1,3 +1,3 @@
 ## Weather
 
-[Deploy Link]()
+[Deploy Link](https://weather-ckb.netlify.app/)
