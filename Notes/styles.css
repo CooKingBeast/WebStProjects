@@ -39,11 +39,12 @@ body {
 	margin-bottom: 30px;
 }
 
-.control_description{
+.control_description {
 	font-weight: 500;
 }
 
-.item {
+.item,
+.control {
 	display: flex;
 	flex-direction: column;
 	margin: 0 40px 40px 0;
@@ -54,7 +55,8 @@ body {
 	background-color: white;
 }
 
-.item_bubble {
+.item::after {
+	content: '';
 	position: relative;
 	border-style: solid;
 	border-color: white transparent;
@@ -81,7 +83,8 @@ textarea {
 	align-items: center;
 }
 
-.edit, .delete {
+.edit,
+.delete {
 	height: 30px;
 	width: 150px;
 	background-color: #87abf9;
@@ -91,4 +94,3 @@ textarea {
 	font-size: 20px;
 	border-radius: 2px;
 }
-
