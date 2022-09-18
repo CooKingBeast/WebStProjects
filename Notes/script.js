@@ -1,31 +1,22 @@
-const controlBtnSelector = document.querySelector('.control-button')
+const controlButtonSelector = document.querySelector('.control-button')
 const contentSelector = document.querySelector('.content')
 
-const HandleAddNote = () => {
-	console.log('click')
-
+const handleAddNote = () => {
 	const newItem = document.createElement('div')
-	const itemTextContainer = document.createElement('div')
-	const itemLabel = document.createElement('label')
-	const itemTextarea = document.createElement('textarea')
-	const itemButtonsPanel = document.createElement('div')
-	const itemButtonEdit = document.createElement('button')
-	const itemButtonDelete = document.createElement('button')
-
 	newItem.className = 'item'
-	itemTextContainer.className = 'item_text_block'
-	itemButtonsPanel.className = 'buttons_panel'
-	itemButtonEdit.className = 'edit'
-	itemButtonEdit.innerText = 'Edit'
-	itemButtonDelete.className = 'delete'
-	itemButtonDelete.innerText = 'Delete'
-
+	newItem.insertAdjacentHTML(
+		'afterbegin',
+		`<div class="item_text_block">
+							<label for="item_textarea1">
+										<textarea id="item_textarea1">*Lorem ipsum dolor sit amet</textarea>
+							</label>
+					</div>
+					<div class="buttons_panel">
+								<button class="edit">Edit</button>
+								<button class="delete">Delete</button>
+					</div>`
+	)
 	contentSelector.append(newItem)
-	newItem.append(itemTextContainer)
-	itemTextContainer.append(itemLabel)
-	itemLabel.append(itemTextarea)
-	newItem.append(itemButtonsPanel)
-	itemButtonsPanel.append(itemButtonEdit, itemButtonDelete)
 }
 
-controlBtnSelector.addEventListener('click', HandleAddNote)
+controlButtonSelector.addEventListener('click', handleAddNote)
