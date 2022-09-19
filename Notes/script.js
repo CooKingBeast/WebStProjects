@@ -28,7 +28,8 @@ const handleDeleteItem = (deleteTarget) => {
 
 controlButtonSelector.addEventListener('click', handleAddNote)
 contentSelector.addEventListener('click', (event) => {
+	const itemPath = event.target.closest('.item')
 	if (event.target.id > 0 && event.target.id < 999) {
-		handleDeleteItem(event.target.parentNode.parentNode)
+		handleDeleteItem(itemPath)
 	}
 })
