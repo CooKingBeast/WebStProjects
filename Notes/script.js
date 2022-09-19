@@ -1,10 +1,13 @@
 const controlButtonSelector = document.querySelector('.control-button')
 const contentSelector = document.querySelector('.content')
 
+let id = 0
+
 const handleAddNote = () => {
 	const newItem = document.createElement('div')
 	newItem.className = 'item'
-
+	id += 1
+	newItem.id = id.toString()
 	newItem.insertAdjacentHTML(
 		'afterbegin',
 		`<div class="item_text_block">
