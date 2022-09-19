@@ -4,6 +4,7 @@ const contentSelector = document.querySelector('.content')
 const handleAddNote = () => {
 	const newItem = document.createElement('div')
 	newItem.className = 'item'
+
 	newItem.insertAdjacentHTML(
 		'afterbegin',
 		`<div class="item_text_block">
@@ -17,6 +18,17 @@ const handleAddNote = () => {
 					</div>`
 	)
 	contentSelector.append(newItem)
+
+	const deleteButtonSelector = document.querySelector('.delete')
+	const deleteElementSelector = document.querySelector('.item')
+
+	deleteButtonSelector.addEventListener('click', () => {
+		handleDeleteItem(deleteElementSelector)
+	})
+}
+
+const handleDeleteItem = (deleteElementSelector) => {
+	deleteElementSelector.remove()
 }
 
 controlButtonSelector.addEventListener('click', handleAddNote)
