@@ -7,7 +7,6 @@ const handleAddNote = () => {
 	const newItem = document.createElement('div')
 	newItem.className = 'item'
 	id += 1
-	newItem.id = id.toString()
 	newItem.insertAdjacentHTML(
 		'afterbegin',
 		`<div class="item_text_block">
@@ -17,21 +16,19 @@ const handleAddNote = () => {
 					</div>
 					<div class="buttons_panel">
 								<button class="edit">Edit</button>
-								<button class="delete">Delete</button>
+								<button class="delete" id="${id}">Delete</button>
 					</div>`
 	)
 	contentSelector.append(newItem)
-
-	const deleteButtonSelector = document.querySelector('.delete')
-	const deleteElementSelector = document.querySelector('.item')
-
-	deleteButtonSelector.addEventListener('click', () => {
-		handleDeleteItem(deleteElementSelector)
-	})
 }
 
-const handleDeleteItem = (deleteElementSelector) => {
-	deleteElementSelector.remove()
+const handleDeleteItem = (deleteTarget) => {
+	deleteTarget.remove()
 }
 
 controlButtonSelector.addEventListener('click', handleAddNote)
+contentSelector.addEventListener('click', (event) => {
+	if (event.target.id > 0 && event.target.id < 999) {
+		handleDeleteItem(event.target.parentNode.parentNode)
+	}
+})
