@@ -11,8 +11,8 @@ const handleAddNote = () => {
 	editBtnID += 1
 	newItem.insertAdjacentHTML(
 		'afterbegin',
-		`<div class="item_text_block">
-							<label for="item_textarea1">
+		`<div class="disable">
+							<label for="item_textarea">
 										<textarea id="item_textarea1">*Lorem ipsum dolor sit amet</textarea>
 							</label>
 					</div>
@@ -24,21 +24,26 @@ const handleAddNote = () => {
 	contentSelector.append(newItem)
 }
 
-const handleDeleteItem = (deleteTarget) => {
-	deleteTarget.remove()
+const handleDeleteItem = (itemPath) => {
+	itemPath.remove()
 }
 
-const handleEditItem = () => {
-	console.log('click')
+const handleEditItem = (textareaPath) => {
+	if (textareaPath.classList.contains('disable')) {
+		textareaPath.classList.remove('disable')
+	} else {
+		textareaPath.classList.add('disable')
+	}
 }
 
 controlButtonSelector.addEventListener('click', handleAddNote)
 
 contentSelector.addEventListener('click', (event) => {
 	const itemPath = event.target.closest('.item')
+	const textareaPath = event.target.parentNode.parentNode.children[0]
 	if (event.target.id > 0 && event.target.id < 999) {
 		handleDeleteItem(itemPath)
 	} else if (event.target.id > 1000 && event.target.id < 1999) {
-		handleEditItem()
+		handleEditItem(textareaPath)
 	}
 })

@@ -79,6 +79,10 @@ textarea {
 	font-size: 18px;
 }
 
+.disable {
+	pointer-events: none;
+}
+
 .buttons_panel {
 	display: flex;
 	justify-content: space-between;
