@@ -36,14 +36,17 @@ const handleEditItem = (textareaPath) => {
 	}
 }
 
-controlButtonSelector.addEventListener('click', handleAddNote)
-
-contentSelector.addEventListener('click', (event) => {
-	const itemPath = event.target.closest('.item')
-	const textareaPath = event.target.parentNode.parentNode.children[0]
-	if (event.target.id > 0 && event.target.id < 999) {
-		handleDeleteItem(itemPath)
-	} else if (event.target.id > 1000 && event.target.id < 1999) {
-		handleEditItem(textareaPath)
+const handleItemActions = (target, targetParent) => {
+	if (target.id > 0 && target.id < 999) {
+		handleDeleteItem(targetParent)
+	} else if (target.id > 1000 && target.id < 1999) {
+		handleEditItem(targetParent.children[0])
 	}
+}
+
+controlButtonSelector.addEventListener('click', handleAddNote)
+contentSelector.addEventListener('click', (event) => {
+	const target = event.target
+	const targetParent = event.target.closest('.item')
+	handleItemActions(target, targetParent)
 })
