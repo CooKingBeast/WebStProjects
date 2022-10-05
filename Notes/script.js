@@ -3,8 +3,10 @@ const contentSelector = document.querySelector('.content')
 
 let deleteBtnID = 0
 let editBtnID = 1000
+let textareaValue = ''
+const arrOfItems = []
 
-const handleAddNote = () => {
+const handleAddNote = (textareaValue) => {
 	const newItem = document.createElement('div')
 	newItem.className = 'item'
 	deleteBtnID += 1
@@ -13,7 +15,7 @@ const handleAddNote = () => {
 		'afterbegin',
 		`<div class="disable">
 							<label for="item_textarea">
-										<textarea id="item_textarea1">*Lorem ipsum dolor sit amet</textarea>
+										<textarea id="item_textarea">${textareaValue}</textarea>
 							</label>
 					</div>
 					<div class="buttons_panel">
@@ -22,21 +24,26 @@ const handleAddNote = () => {
 					</div>`
 	)
 	contentSelector.append(newItem)
+	// handleLocalStorage(textareaValue.innerText)
 }
 
-const handleDeleteItem = (itemPath) => {
-	itemPath.remove()
+const handleDeleteItem = (targetParent) => {
+	targetParent.remove()
 }
 
 const handleEditItem = (textareaPath) => {
+	//const textareaValueSelector = document.getElementById('item_textarea')
+	//textareaPath.lastElementChild.lastElementChild.value
 	if (textareaPath.classList.contains('disable')) {
 		textareaPath.classList.remove('disable')
 	} else {
 		textareaPath.classList.add('disable')
+		handleLocalStorage(textareaPath.lastElementChild.lastElementChild.value)
 	}
 }
 
-const handleItemActions = (target, targetParent) => {
+const handleItemActions = (target) => {
+	const targetParent = target.closest('.item')
 	if (target.id > 0 && target.id < 999) {
 		handleDeleteItem(targetParent)
 	} else if (target.id > 1000 && target.id < 1999) {
@@ -44,9 +51,24 @@ const handleItemActions = (target, targetParent) => {
 	}
 }
 
+const handleLocalStorage = (textareaValue) => {
+	arrOfItems.push(textareaValue)
+
+	localStorage.setItem('item', JSON.stringify(arrOfItems))
+	console.log('arrOfItems', arrOfItems)
+}
+
 controlButtonSelector.addEventListener('click', handleAddNote)
 contentSelector.addEventListener('click', (event) => {
 	const target = event.target
-	const targetParent = event.target.closest('.item')
-	handleItemActions(target, targetParent)
+	handleItemActions(target)
 })
+
+const init = () => {
+	const a = JSON.parse(localStorage.getItem('item'))
+	console.log(a)
+	// handleAddNote(localStorage.getItem('item'))
+	a.map((el) => handleAddNote(el))
+}
+
+init()
