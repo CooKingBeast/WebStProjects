@@ -3,10 +3,9 @@ const contentSelector = document.querySelector('.content')
 
 let deleteBtnID = 0
 let editBtnID = 1000
-let textareaValue = ''
-const arrOfItems = []
+let arrOfItems = []
 
-const handleAddNote = (textareaValue) => {
+const handleAddNote = (textareaValue = '') => {
 	const newItem = document.createElement('div')
 	newItem.className = 'item'
 	deleteBtnID += 1
@@ -15,7 +14,7 @@ const handleAddNote = (textareaValue) => {
 		'afterbegin',
 		`<div class="disable">
 							<label for="item_textarea">
-										<textarea id="item_textarea">${textareaValue}</textarea>
+										<textarea class="textarea" id="item_textarea">${textareaValue}</textarea>
 							</label>
 					</div>
 					<div class="buttons_panel">
@@ -24,21 +23,34 @@ const handleAddNote = (textareaValue) => {
 					</div>`
 	)
 	contentSelector.append(newItem)
-	// handleLocalStorage(textareaValue.innerText)
 }
 
 const handleDeleteItem = (targetParent) => {
 	targetParent.remove()
+	const textareaSelector = document.querySelectorAll('.textarea')
+
+	arrOfItems = []
+
+	textareaSelector.forEach((el) => {
+		setToLocalStorage(el.value)
+	})
 }
 
 const handleEditItem = (textareaPath) => {
-	//const textareaValueSelector = document.getElementById('item_textarea')
-	//textareaPath.lastElementChild.lastElementChild.value
 	if (textareaPath.classList.contains('disable')) {
 		textareaPath.classList.remove('disable')
 	} else {
 		textareaPath.classList.add('disable')
-		handleLocalStorage(textareaPath.lastElementChild.lastElementChild.value)
+
+		const textareaSelector = document.querySelectorAll('.textarea')
+
+		arrOfItems = []
+
+		textareaSelector.forEach((el) => {
+			if (el.value) {
+				setToLocalStorage(el.value)
+			}
+		})
 	}
 }
 
@@ -51,24 +63,26 @@ const handleItemActions = (target) => {
 	}
 }
 
-const handleLocalStorage = (textareaValue) => {
+const setToLocalStorage = (textareaValue) => {
 	arrOfItems.push(textareaValue)
-
-	localStorage.setItem('item', JSON.stringify(arrOfItems))
-	console.log('arrOfItems', arrOfItems)
+	localStorage.setItem('items', JSON.stringify(arrOfItems))
 }
 
-controlButtonSelector.addEventListener('click', handleAddNote)
+controlButtonSelector.addEventListener('click', () => handleAddNote())
 contentSelector.addEventListener('click', (event) => {
 	const target = event.target
 	handleItemActions(target)
 })
 
 const init = () => {
-	const a = JSON.parse(localStorage.getItem('item'))
-	console.log(a)
-	// handleAddNote(localStorage.getItem('item'))
-	a.map((el) => handleAddNote(el))
+	const parsedItems = JSON.parse(localStorage.getItem('items'))
+
+	if (parsedItems) {
+		parsedItems.map((value) => {
+			handleAddNote(value)
+			arrOfItems.push(value)
+		})
+	}
 }
 
 init()
