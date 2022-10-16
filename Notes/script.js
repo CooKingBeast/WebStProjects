@@ -46,9 +46,9 @@ const handleEditItem = (textareaPath) => {
 
 		arrOfItems = []
 
-		textareaSelector.forEach((el) => {
-			if (el.value) {
-				setToLocalStorage(el.value)
+		textareaSelector.forEach((textarea) => {
+			if (textarea.value) {
+				setToLocalStorage(textarea.value)
 			}
 		})
 	}
