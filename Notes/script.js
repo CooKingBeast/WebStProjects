@@ -3,7 +3,6 @@ const contentSelector = document.querySelector('.content')
 
 let deleteBtnID = 0
 let editBtnID = 1000
-let arrOfItems = []
 
 const handleAddNote = (textareaValue = '') => {
 	const newItem = document.createElement('div')
@@ -27,13 +26,7 @@ const handleAddNote = (textareaValue = '') => {
 
 const handleDeleteItem = (targetParent) => {
 	targetParent.remove()
-	const textareaSelector = document.querySelectorAll('.textarea')
-
-	arrOfItems = []
-
-	textareaSelector.forEach((el) => {
-		setToLocalStorage(el.value)
-	})
+	refreshLocalStorage()
 }
 
 const handleEditItem = (textareaPath) => {
@@ -41,16 +34,7 @@ const handleEditItem = (textareaPath) => {
 		textareaPath.classList.remove('disable')
 	} else {
 		textareaPath.classList.add('disable')
-
-		const textareaSelector = document.querySelectorAll('.textarea')
-
-		arrOfItems = []
-
-		textareaSelector.forEach((textarea) => {
-			if (textarea.value) {
-				setToLocalStorage(textarea.value)
-			}
-		})
+		refreshLocalStorage()
 	}
 }
 
@@ -62,9 +46,18 @@ const handleItemActions = (target) => {
 		handleEditItem(targetParent.children[0])
 	}
 }
+const refreshLocalStorage = () => {
+	const textareaSelector = document.querySelectorAll('.textarea')
+	const arrOfItems = []
+	textareaSelector.forEach((textarea) => {
+		if (textarea.value) {
+			arrOfItems.push(textarea.value)
+		}
+	})
+	setToLocalStorage(arrOfItems)
+}
 
-const setToLocalStorage = (textareaValue) => {
-	arrOfItems.push(textareaValue)
+const setToLocalStorage = (arrOfItems) => {
 	localStorage.setItem('items', JSON.stringify(arrOfItems))
 }
 
@@ -80,7 +73,6 @@ const init = () => {
 	if (parsedItems) {
 		parsedItems.map((value) => {
 			handleAddNote(value)
-			arrOfItems.push(value)
 		})
 	}
 }
