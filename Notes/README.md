@@ -1,3 +1,3 @@
 ## Notes
 
-[Deploy Link]()
+[https://ckb-notes.netlify.app/]()
