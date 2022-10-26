@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<title>Cooking</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="./style.css" />
 	</head>
 	<body>
@@ -21,6 +22,14 @@
 				<h2>Random recipe</h2>
 				<img src="./assets/food%20example.png" alt="food" />
 				<span>Recipe name</span>
+				<button>
+					<img
+						src="./assets/star.svg"
+						alt="star"
+						width="20"
+						height="20"
+					/>
+				</button>
 			</aside>
 			<div>
 				<section>
@@ -32,6 +41,7 @@
 							height="75"
 							width="75"
 						/>
+						<span>Recipe name</span>
 						<button>
 							<img
 								src="./assets/delete.svg"
@@ -43,17 +53,18 @@
 					</div>
 					<div>
 						<img
-								src="./assets/food%20example.png"
-								alt="food"
-								height="75"
-								width="75"
+							src="./assets/food%20example.png"
+							alt="food"
+							height="75"
+							width="75"
 						/>
+						<span>Recipe name</span>
 						<button>
 							<img
-									src="./assets/delete.svg"
-									alt="delete"
-									width="15"
-									height="15"
+								src="./assets/delete.svg"
+								alt="delete"
+								width="15"
+								height="15"
 							/>
 						</button>
 					</div>
@@ -84,20 +95,31 @@
 						</button>
 					</div>
 				</section>
+				<div>
+					<img src="./assets/nodata.png" alt="nodata">
+					<h2>Hurry up! Search for your recipes</h2>
+				</div>
 			</div>
 			<section>
 				<img src="./assets/food%20example.png" alt="food" />
+				<button>
+					<img
+						src="./assets/delete.svg"
+						alt="delete"
+						width="15"
+						height="15"
+					/>
+				</button>
+				<h2>Recipe name</h2>
 				<article>
 					Описание *Lorem ipsum dolor sit amet, consectetur
 					adipisicing elit.
 				</article>
-				<div>
-					<ul>
-						Ингридиенты
-						<li>1</li>
-						<li>2</li>
-					</ul>
-				</div>
+				<ul>
+					Ингридиенты
+					<li>1</li>
+					<li>2</li>
+				</ul>
 			</section>
 		</main>
 		<script src="./script.js"></script>
