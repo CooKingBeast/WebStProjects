@@ -1,0 +1,5 @@
+const randomRecipeSelector = document.querySelector('.aside_img')
+const inputSelector = document.querySelector('.header_input')
+const favSelector = document.querySelector('.favorite-recipes_container')
+const mainSelector = document.querySelector('.recipes-container')
+console.log(favSelector, mainSelector)
